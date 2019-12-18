@@ -1,5 +1,3 @@
-#This is a spark program to apply filter transformation on an RDD and thus filter out
-#the minimum temperature from a dataset
 from pyspark import SparkConf, SparkContext
 
 conf = SparkConf().setMaster("local").setAppName("MinTemperatures")
@@ -14,10 +12,10 @@ def parseLine(line):
 
 lines = sc.textFile("file:///usr/techbox/codes/mysparkprojects/1800.csv")
 parsedLines = lines.map(parseLine)
-minTemps = parsedLines.filter(lambda x: "TMIN" in x[1])
-stationTemps = minTemps.map(lambda x: (x[0], x[2]))
-minTemps = stationTemps.reduceByKey(lambda x, y: min(x,y))
-results = minTemps.collect();
+maxTemps = parsedLines.filter(lambda x: "TMAX" in x[1])
+stationTemps = maxTemps.map(lambda x: (x[0], x[2]))
+maxTemps = stationTemps.reduceByKey(lambda x, y: max(x,y))
+results = maxTemps.collect();
 
 for result in results:
     print(result[0] + "\t{:.2f}F".format(result[1]))
