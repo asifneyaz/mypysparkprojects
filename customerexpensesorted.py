@@ -1,3 +1,7 @@
+#This is a spark program to find the largest spending customer from repository of ord#ers. 
+# Thiscontains customer id and amount spent for multiple orders 
+#made by same/different customer
+
 from pyspark import SparkConf, SparkContext
 
 conf = SparkConf().setMaster("local").setAppName("customer-orders")
@@ -12,7 +16,7 @@ def parseLine(line):
 lines = sc.textFile("file:///usr/techbox/codes/mysparkprojects/customer-orders.csv")
 parsedLines = lines.map(parseLine)
 customerAmounts = parsedLines.reduceByKey(lambda x,y: (x+y)) 
-results = customerAmounts.collect();
+customerAmountsSorted = customerAmounts.map(lambda x: (x[1], x[0])).sortByKey()
+results = customerAmountsSorted.collect();
 for result in results:
     print(result)
-
