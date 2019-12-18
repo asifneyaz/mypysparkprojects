@@ -5,14 +5,13 @@ sc = SparkContext(conf = conf)
 
 def parseLine(line):
     fields = line.split(',')
-    customerID = fields[0]
+    customerID = int(fields[0])
     amount = float(fields[2])
-    return (customerID), amount)
+    return (customerID, amount)
 
 lines = sc.textFile("file:///usr/techbox/codes/mysparkprojects/customer-orders.csv")
 parsedLines = lines.map(parseLine)
-customerAmounts = parsedLines.map(lambda x: (x[0], x[2]))
-
+customerAmounts = parsedLines.reduceByKey(lambda x,y: (x+y)) 
 results = customerAmounts.collect();
 for result in results:
     print(result)
