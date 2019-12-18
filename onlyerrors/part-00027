@@ -1,0 +1,5 @@
+2018-11-29 18:09:58,732 ERROR namenode.SecondaryNameNode (LogAdapter.java:error(73)) - RECEIVED SIGNAL 15: SIGTERM
+2019-12-16 02:31:15,806 ERROR namenode.SecondaryNameNode (LogAdapter.java:error(73)) - RECEIVED SIGNAL 15: SIGTERM
+2019-12-16 02:31:16,012 ERROR namenode.SecondaryNameNode (LogAdapter.java:error(73)) - RECEIVED SIGNAL 15: SIGTERM
+2019-12-17 05:41:00,929 ERROR namenode.SecondaryNameNode (LogAdapter.java:error(73)) - RECEIVED SIGNAL 15: SIGTERM
+2019-12-17 05:41:02,243 ERROR namenode.SecondaryNameNode (LogAdapter.java:error(73)) - RECEIVED SIGNAL 15: SIGTERM

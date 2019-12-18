@@ -1,0 +1,2 @@
+2019-12-17 05:41:00,897 ERROR namenode.NameNode (LogAdapter.java:error(75)) - RECEIVED SIGNAL 15: SIGTERM
+2019-12-17 05:41:02,363 ERROR namenode.NameNode (LogAdapter.java:error(75)) - RECEIVED SIGNAL 15: SIGTERM

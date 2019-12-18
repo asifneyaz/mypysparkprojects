@@ -1,0 +1,5 @@
+2018-11-29 18:10:47,848 ERROR namenode.NameNode (LogAdapter.java:error(75)) - RECEIVED SIGNAL 15: SIGTERM
+2019-12-16 02:31:15,851 ERROR namenode.NameNode (LogAdapter.java:error(75)) - RECEIVED SIGNAL 15: SIGTERM
+2019-12-16 02:31:16,016 ERROR namenode.NameNode (LogAdapter.java:error(75)) - RECEIVED SIGNAL 15: SIGTERM
+2019-12-16 02:31:19,031 ERROR queue.AuditBatchQueue (AuditBatchQueue.java:waitToComplete(164)) - Queue size is not changing. hdfs.async.batch.size=20
+2019-12-16 02:31:20,032 ERROR queue.AuditBatchQueue (AuditBatchQueue.java:waitToComplete(164)) - Queue size is not changing. hdfs.async.batch.size=20
