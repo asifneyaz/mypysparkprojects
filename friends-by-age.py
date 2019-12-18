@@ -1,3 +1,4 @@
+#Average number of friends broken down by age in a socail media network
 from pyspark import SparkConf, SparkContext
 
 conf = SparkConf().setMaster("local").setAppName("FriendsByAge")
