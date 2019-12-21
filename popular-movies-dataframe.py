@@ -4,20 +4,20 @@ from pyspark.sql import functions
 
 def loadMovieNames():
     movieNames = {}
-    with open("ml-100k/u.ITEM") as f:
+    with open("ml-100k/u.item") as f:
         for line in f:
             fields = line.split('|')
             movieNames[int(fields[0])] = fields[1]
     return movieNames
 
 # Create a SparkSession (the config bit is only for Windows!)
-spark = SparkSession.builder.config("spark.sql.warehouse.dir", "file:///C:/temp").appName("PopularMovies").getOrCreate()
+spark = SparkSession.builder.appName("PopularMovies").getOrCreate()
 
 # Load up our movie ID -> name dictionary
 nameDict = loadMovieNames()
 
 # Get the raw data
-lines = spark.sparkContext.textFile("file:///SparkCourse/ml-100k/u.data")
+lines = spark.sparkContext.textFile("file:///usr/techbox/codes/mysparkprojects/ml-100k/u.data")
 # Convert it to a RDD of Row objects
 movies = lines.map(lambda x: Row(movieID =int(x.split()[1])))
 # Convert that to a DataFrame
