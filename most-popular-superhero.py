@@ -1,3 +1,5 @@
+#This is my spark program ti identify the super hero in Marvel Universe with most number of co-appearance
+#
 from pyspark import SparkConf, SparkContext
 
 conf = SparkConf().setMaster("local").setAppName("PopularHero")
@@ -15,14 +17,10 @@ names = sc.textFile("file:////usr/techbox/codes/mysparkprojects/Marvel-Names.txt
 namesRdd = names.map(parseNames)
 
 lines = sc.textFile("file:///usr/techbox/codes/mysparkprojects/Marvel-Graph.txt")
-
 pairings = lines.map(countCoOccurences)
 totalFriendsByCharacter = pairings.reduceByKey(lambda x, y : x + y)
 flipped = totalFriendsByCharacter.map(lambda xy : (xy[1], xy[0]))
-
 mostPopular = flipped.max()
-
 mostPopularName = namesRdd.lookup(mostPopular[1])[0]
-
 print(str(mostPopularName) + " is the most popular superhero, with " + \
     str(mostPopular[0]) + " co-appearances.")
