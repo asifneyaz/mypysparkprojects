@@ -1,0 +1,5 @@
+Running BFS iteration# 1
+Processing 8330 values.
+Running BFS iteration# 2
+Processing 220615 values.
+Hit the target character! From 1 different direction(s).
