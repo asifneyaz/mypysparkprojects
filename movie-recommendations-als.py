@@ -1,10 +1,11 @@
 import sys
+from io import open
 from pyspark import SparkConf, SparkContext
 from pyspark.mllib.recommendation import ALS, Rating
 
 def loadMovieNames():
     movieNames = {}
-    with open("ml-100k/u.ITEM", encoding='ascii', errors="ignore") as f:
+    with open("ml-100k/u.item", encoding='ascii', errors='ignore') as f:
         for line in f:
             fields = line.split('|')
             movieNames[int(fields[0])] = fields[1]
@@ -17,7 +18,7 @@ sc.setCheckpointDir('checkpoint')
 print("\nLoading movie names...")
 nameDict = loadMovieNames()
 
-data = sc.textFile("file:///SparkCourse/ml-100k/u.data")
+data = sc.textFile("file:///usr/techbox/codes/mysparkprojects/ml-100k/u.data")
 
 ratings = data.map(lambda l: l.split()).map(lambda l: Rating(int(l[0]), int(l[1]), float(l[2]))).cache()
 
