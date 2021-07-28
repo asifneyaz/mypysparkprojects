@@ -5,6 +5,7 @@ from pyspark.sql import Row
 
 # warehouse_location points to the default location for managed databases and tables
 warehouse_location = abspath('spark-warehouse')
+print(warehouse_location)
 
 spark = SparkSession \
     .builder \
