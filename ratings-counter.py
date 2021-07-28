@@ -13,6 +13,7 @@ conf = SparkConf().setMaster("local").setAppName("RatingsHistogram")
 sc = SparkContext(conf=conf)
 
 lines = sc.textFile("file:////home/datalakedata/mysparkprojects/ml-100k/u.data")
+print(type(lines))
 ratings = lines.map(lambda x: x.split()[2])
 print(type(ratings))
 result = ratings.countByValue()
