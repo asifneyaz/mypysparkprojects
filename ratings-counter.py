@@ -5,6 +5,7 @@
 #3 12500
 #4 22000
 #5 16545
+#my first python code
 from pyspark import SparkConf, SparkContext
 import collections
 
