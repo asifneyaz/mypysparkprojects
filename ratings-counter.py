@@ -6,14 +6,13 @@
 #4 22000
 #5 16545
 #my first python code
-from pyspark import SparkSession
+from pyspark import SparkConf, SparkContext
 import collections
-spark = (SparkSession.builder.appName("ratings"))
 
-#conf = SparkConf().setMaster("local").setAppName("RatingsHistogram")
-#sc = SparkContext(conf=conf)
+conf = SparkConf().setMaster("local").setAppName("RatingsHistogram")
+sc = SparkContext(conf=conf)
 
-lines = spark.textFile("file:////home/datalakedata/mysparkprojects/ml-100k/u.data")
+lines = sc.textFile("file:////home/datalakedata/mysparkprojects/ml-100k/u.data")
 ratings = lines.map(lambda x: x.split()[2])
 result = ratings.countByValue()
 
