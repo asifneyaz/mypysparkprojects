@@ -1,0 +1,2 @@
+sqoop import --connect jdbc:mysql://192.168.86.29:3306/testschema --username root --password password --table acct
+
